@@ -1,0 +1,158 @@
+body{
+  background-color: #f0efe9;
+  font-family:Inter,system-ui,Avenir,Helvetica,Arial,sans-serif;
+}
+
+#root{
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.date-day-container{
+  color: rgb(95, 95, 95);
+}
+/* font size of date  */
+.date{
+  font-size: 3rem;
+  font-weight: bolder;
+}
+/* space between date and month-year  */
+.month-year{
+  font-weight: bold;
+  margin: 0.1rem 0 0 0.25rem;
+}
+/* main container */
+.todo-container{
+  height: 40.625rem;
+  padding: 3rem;
+  width: 26.25rem;
+  background-color: white;
+  border-radius: 0.5rem;
+  box-shadow: 0 0 2.5rem 0 #c4c4c4;
+}
+/* hide the scroll bar */
+.task-list::-webkit-scrollbar {
+  display: none;
+}
+.task-list{
+  height: 27.188rem;
+  overflow-y: scroll;
+  border-radius: 0.125rem;
+  background:
+    /* Shadow Cover TOP */
+    linear-gradient(
+      white 30%,
+      rgba(255, 255, 255, 0)
+    ) center top,
+    
+    /* Shadow Cover BOTTOM */
+    linear-gradient(
+      rgba(255, 255, 255, 0), 
+      white 70%
+    ) center bottom,
+    
+    /* Shadow TOP */
+    radial-gradient(
+      farthest-side at 50% 0,
+      rgba(0, 0, 0, 0.2),
+      rgba(0, 0, 0, 0)
+    ) center top,
+    
+    /* Shadow BOTTOM */
+    radial-gradient(
+      farthest-side at 50% 100%,
+      rgba(0, 0, 0, 0.2),
+      rgba(0, 0, 0, 0)
+    ) center bottom;
+  
+  background-repeat: no-repeat;
+  background-size: 100% 2.5rem, 100% 2.5rem, 100% 0.8rem, 100% 0.8rem;
+  background-attachment: local, local, scroll, scroll;
+}
+
+.task{
+  width: 17rem;
+  font-size: 1.25rem;
+  margin: 0.5rem 0;
+  overflow:hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  cursor: pointer;
+}
+
+.task-sign{
+  cursor: pointer;
+  margin-left: 1rem;
+}
+/* task input style */
+.task-input{
+  padding: 0.5rem;
+  margin-top: 1.8rem;
+  border: 0;
+  outline: none;
+  border-radius: 0.2rem;
+  box-shadow: 0 0.1rem 0.6rem rgb(165, 165, 165);
+}
+.single-task-container{
+  transition: .25s;
+}
+.single-task-container:hover{
+  box-shadow: 0 0 0.7rem rgba(33,33,33,.2); 
+}
+/* make circle postion in the center */
+.circle {
+  width: 5rem;
+  height: 5rem;
+  border-radius: 50%;
+  background-color: #50e3a4;
+  position: relative;
+  top: 3.4rem;
+  cursor: pointer;
+  transition: .25s;
+}
+.circle:hover{
+  background-color: rgb(255, 195, 195);
+}
+/* make plus sign in the middle of the circle */
+.circle::before {
+  content: "+";
+  font-size: 3rem;
+  color: rgb(68, 68, 68);
+  position: absolute;
+  top: 47%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+/* empty todo image */
+.notask-image{
+  margin-top: 7rem;
+  width: 20rem;
+}
+/* media query for  */
+@media (max-width: 768px){
+  .todo-container{
+    max-width: 20.625rem;
+    max-height: 35rem;
+  }
+  .circle{
+    top:1.8rem
+  }
+  .task{
+    font-size: 0.9rem;
+    margin: 0.4rem 0;
+  }
+  .task-list{
+    overflow: auto;
+    height: 23.125rem;
+  }
+  .task-input{
+    margin-top:1rem ;
+    padding: 0.2rem;
+  }
+  .notask-image{
+    margin-top: 6rem;
+    width: 15rem;
+  }
+}
